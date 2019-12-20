@@ -6,7 +6,7 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Jekyll v3.8.6">
-    <title>A. Bertuol Portfolio</title>
+    <title>A. Bertuol Blog</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/4.4/examples/album/">
 
@@ -40,7 +40,8 @@
       }
     </style>
     <!-- Custom styles for this template -->
-    <link href="home.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700,900" rel="stylesheet">
+    <link href="allblogs.css" rel="stylesheet">
   </head>
   <body>
     <header>
@@ -53,45 +54,33 @@
           <div class="navbar-nav ml-auto">
             <a class="nav-item nav-link" href="#">Facebook</a>
             <a class="nav-item nav-link" href="#">Résumé</a>
-            <a class="nav-item nav-link" href="#">Blog</a>
+            <a class="nav-item nav-link active" href="#">Blog</a>
           </div>
         </div>
       </nav
 </header>
 
 <main role="main">
+<div class="container">
 
-  <section class="jumbotron text-center">
+
+    <h1 class="text-center pt-3"> A. Bertuol's Blog</h1>
+    <br>
+    <br>
+    <h2>Latest Posts</h2>
+    <hr>
+    {% for post in blogs.all %}
     <div class="container">
-      <h1>Hi, I'm Alexandre</h1>
-      <p class="lead text-muted">Something short and leading about the collection below—its contents, the creator, etc. Make it short and sweet, but not too short so folks don’t simply skip over it entirely.</p>
-      <p>
-        <a href="mailto:axdber@gmail.com" class="btn btn-primary my-2">Contact</a>
-      </p>
+      <a href="#"><h4>{{ post.title }}</h4></a>
+      <p>{{ post.pub_date_pretty }}</p>
+      <br>
+      <img class="img-fluid"src="{{ post.image.url }}" alt="" height="200" width="200">
+      <p>{{ post.summary }}</p>
+
     </div>
-  </section>
-
-  <div class="album py-5 bg-light">
-    <div class="container">
-
-      <div class="row">
-
-        {% for job in jobs.all %}
-        <div class="col-md-4">
-          <div class="card mb-4 shadow-sm">
-            <img class="card-img-top" src="{{ job.image.url }}" />
-            <div class="card-body">
-              <p class="card-text">{{ job.summary }}</p>
-
-            </div>
-          </div>
-        </div>
-
-        {% endfor %}
-      </div>
-    </div>
-  </div>
-
+    <hr>
+    {% endfor %}
+</div>
 </main>
 
 <footer class="text-muted">
