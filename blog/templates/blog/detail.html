@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>A. Bertuol Blog</title>
+    <title>{{ blog.title }}</title>
 
 
     <!-- Bootstrap core CSS -->
@@ -61,27 +61,14 @@
 </header>
 
 <main role="main">
-<div class="container">
+  <div class="container">
+    <h4 class='text-center pt-3'>{{ blog.title }}</h4>
+    <p class='text-center'>{{ blog.pub_date_pretty }}</p>
+    <img class="img-fluid" src="{{ blog.image.url }}" alt="">
+    <p>{{ blog.text }}</p>
 
-
-    <h1 class="text-center pt-3"> A. Bertuol's Blog</h1>
-    <br>
-    <br>
-    <h2>Latest Posts</h2>
-    <hr>
-    {% for post in blogs.all %}
-
-    <div class="container">
-      <a href="{% url 'details' post.id %}"><h4>{{ post.title }}</h4></a>
-      <p>{{ post.pub_date_pretty }}</p>
-      <br>
-      <img class="img-fluid" src="{{ post.image.url }}" alt="" height="200" width="200">
-      <p>{{ post.summary }}</p>
-
-    </div>
-    <hr>
-    {% endfor %}
-</div>
+  </div>
+  <hr>
 </main>
 
 <footer class="text-muted">
